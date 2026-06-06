@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kammegne Tcheugam Brice — PhD Researcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0e1117;
+    --paper: #f5f2ec;
+    --cream: #ede9e0;
+    --accent: #1a4a6e;
+    --gold: #b8860b;
+    --muted: #7a7468;
+    --line: rgba(14,17,23,0.12);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --mono: 'DM Mono', monospace;
+    --sans: 'Outfit', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(245,242,236,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cv a {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    color: var(--paper);
+    background: var(--accent);
+    padding: 0.4rem 1rem;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+  .nav-cv a:hover { background: var(--gold); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--ink); transition: 0.3s; }
+
+  /* ── HERO ── */
+  #about {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 70px;
+  }
+  .hero-left {
+    background: var(--accent);
+    padding: 6rem 4rem 6rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left::before {
+    content: 'Ψ';
+    position: absolute;
+    font-family: var(--serif);
+    font-size: 28rem;
+    color: rgba(255,255,255,0.03);
+    bottom: -4rem;
+    right: -3rem;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .hero-tag {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 1.5rem;
+  }
+  .hero-name {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 3.6rem;
+    line-height: 1.12;
+    color: #fff;
+    margin-bottom: 1.2rem;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: rgba(255,255,255,0.6);
+    display: block;
+    font-size: 1.8rem;
+    margin-top: 0.3rem;
+  }
+  .hero-role {
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 2.4rem;
+    font-weight: 300;
+  }
+  .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .hero-links a {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    text-decoration: none;
+    color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 0.4rem 0.9rem;
+    border-radius: 2px;
+    transition: all 0.2s;
+    letter-spacing: 0.06em;
+  }
+  .hero-links a:hover {
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    border-color: rgba(255,255,255,0.5);
+  }
+
+  .hero-right {
+    padding: 5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+    background: var(--cream);
+    position: relative;
+  }
+  .hero-photo-wrap {
+    position: absolute;
+    top: 4rem; right: 4rem;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--paper);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  }
+  .hero-photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-photo-placeholder {
+    width: 100%; height: 100%;
+    background: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-size: 2rem; color: #fff; font-style: italic;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1; height: 1px; background: var(--gold); opacity: 0.35;
+  }
+
+  .interests-grid {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+  }
+  .interest-pill {
+    font-size: 0.75rem;
+    padding: 0.28rem 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    color: var(--muted);
+    background: var(--paper);
+    letter-spacing: 0.02em;
+  }
+
+  .edu-list { display: flex; flex-direction: column; gap: 0.8rem; }
+  .edu-item { display: flex; gap: 0.8rem; align-items: flex-start; }
+  .edu-icon { font-size: 0.9rem; margin-top: 0.05rem; flex-shrink: 0; }
+  .edu-text { font-size: 0.82rem; color: var(--ink); }
+  .edu-text strong { font-weight: 500; display: block; font-size: 0.84rem; }
+  .edu-text span { color: var(--muted); font-size: 0.78rem; }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 0; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 4rem; }
+
+  h2.section-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 2.6rem;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+  h2.section-title em {
+    color: var(--accent);
+    font-style: italic;
+  }
+  .section-intro {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-bottom: 3rem;
+    max-width: 640px;
+  }
+  .divider {
+    width: 3rem; height: 2px;
+    background: linear-gradient(to right, var(--gold), transparent);
+    margin-bottom: 1rem;
+  }
+
+  /* ── BIOGRAPHY ── */
+  #biography { background: var(--paper); }
+  .bio-grid {
+    display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start;
+  }
+  .bio-text {
+    font-family: var(--serif);
+    font-size: 1.12rem;
+    font-weight: 300;
+    line-height: 1.85;
+    color: #2a2a2a;
+  }
+  .bio-text strong { font-weight: 600; color: var(--accent); }
+  .bio-text a { color: var(--accent); text-decoration: none; }
+
+  .news-panel {
+    background: var(--cream);
+    border-left: 3px solid var(--accent);
+    padding: 1.8rem;
+    border-radius: 0 6px 6px 0;
+  }
+  .news-panel h3 {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+  }
+  .news-item {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-date {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--gold);
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── PUBLICATIONS ── */
+  #publications { background: var(--cream); }
+  .pub-list { display: flex; flex-direction: column; gap: 1.6rem; }
+  .pub-card {
+    background: var(--paper);
+    border-radius: 6px;
+    padding: 1.8rem 2rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 1.8rem;
+    position: relative;
+    transition: box-shadow 0.2s;
+    border: 1px solid var(--line);
+  }
+  .pub-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+  .pub-year-col {
+    display: flex; flex-direction: column; align-items: center;
+    padding-top: 0.2rem;
+  }
+  .pub-year {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--paper);
+    background: var(--accent);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  .pub-line { width: 1px; flex: 1; background: var(--line); margin-top: 0.6rem; min-height: 20px; }
+  .pub-journal {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+  }
+  .pub-title {
+    font-family: var(--serif);
+    font-size: 1.18rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .pub-authors {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+  .pub-authors strong { color: var(--accent); font-weight: 500; }
+  .pub-ref {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+
+  /* ── TALKS ── */
+  #talks { background: var(--paper); }
+  .talks-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.83rem;
+  }
+  .talks-table thead tr {
+    border-bottom: 2px solid var(--accent);
+  }
+  .talks-table th {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0.8rem 1rem 0.8rem 0;
+    text-align: left;
+    font-weight: 400;
+  }
+  .talks-table td {
+    padding: 0.9rem 1rem 0.9rem 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+    color: var(--ink);
+  }
+  .talks-table tr:hover td { background: var(--cream); }
+  .talk-date { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); white-space: nowrap; }
+  .talk-type {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.67rem;
+    letter-spacing: 0.06em;
+    padding: 0.18rem 0.6rem;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .type-invited { background: rgba(26,74,110,0.1); color: var(--accent); }
+  .type-selected { background: rgba(184,134,11,0.1); color: var(--gold); }
+  .type-poster { background: rgba(0,0,0,0.05); color: var(--muted); }
+  .type-visitor { background: rgba(120,180,120,0.12); color: #3a7a3a; }
+  .type-school { background: rgba(120,80,160,0.1); color: #6040a0; }
+
+  /* ── AWARDS ── */
+  #awards { background: var(--cream); }
+  .awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.2rem;
+  }
+  .award-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1.4rem 1.6rem;
+    display: flex; gap: 1.2rem; align-items: flex-start;
+  }
+  .award-year {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--gold);
+    font-weight: 500;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+  .award-body strong {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+  .award-body span {
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--accent); }
+  #contact .section-label { color: rgba(255,255,255,0.5); }
+  #contact .section-label::after { background: rgba(255,255,255,0.2); }
+  #contact h2.section-title { color: #fff; }
+  #contact .section-title em { color: rgba(255,255,255,0.5); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+  }
+  .contact-block { display: flex; flex-direction: column; gap: 1.2rem; }
+  .contact-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+  }
+  .contact-icon {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .contact-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 0.15rem;
+  }
+  .contact-value {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.85);
+  }
+  .contact-value a { color: rgba(255,255,255,0.85); text-decoration: none; }
+  .contact-value a:hover { color: #fff; text-decoration: underline; }
+
+  .references-block h3 {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 1.2rem;
+  }
+  .ref-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .ref-item:last-child { border-bottom: none; }
+  .ref-name {
+    font-weight: 500;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 0.15rem;
+  }
+  .ref-affil { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-bottom: 0.15rem; }
+  .ref-email { font-family: var(--mono); font-size: 0.75rem; color: rgba(255,255,255,0.5); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.35);
+    text-align: center;
+    padding: 1.6rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0; transform: translateY(24px);
+    animation: fadeUp 0.7s ease forwards;
+  }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.22s; }
+  .delay-3 { animation-delay: 0.36s; }
+  .delay-4 { animation-delay: 0.5s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links, .nav-cv { display: none; }
+    .hamburger { display: flex; }
+    #about { grid-template-columns: 1fr; }
+    .hero-left { padding: 4rem 2rem; }
+    .hero-right { padding: 3rem 2rem; }
+    .hero-photo-wrap { position: static; width: 80px; height: 80px; margin-bottom: 1rem; }
+    .bio-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .container { padding: 0 1.5rem; }
+    .awards-grid { grid-template-columns: 1fr; }
+    .pub-card { grid-template-columns: 1fr; }
+    .pub-year-col { flex-direction: row; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem; }
+    .pub-line { width: 100%; height: 1px; min-height: 0; flex: none; flex-grow: 1; margin-top: 0; }
+    .talks-table { display: block; overflow-x: auto; }
+    section { padding: 3.5rem 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">K. T. Brice</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#talks">Talks</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-cv"><a href="https://kammegne2026.github.io/bricekammegne.github.io/CV2026.pdf" target="_blank">↓ CV</a></div>
+  <div class="hamburger" onclick="this.classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="about">
+  <div class="hero-left">
+    <div class="hero-tag fade-in">PhD Researcher · University of Sussex</div>
+    <h1 class="hero-name fade-in delay-1">
+      Kammegne<br>Tcheugam
+      <em>Brice</em>
+    </h1>
+    <p class="hero-role fade-in delay-2">Theoretical Chemistry &amp; Computational Quantum Physics</p>
+    <div class="hero-links fade-in delay-3">
+      <a href="mailto:K.Brice@sussex.ac.uk">✉ Email</a>
+      <a href="https://www.sussex.ac.uk" target="_blank">⊕ Sussex</a>
+      <a href="#contact">↓ Find me</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-photo-wrap">
+      <img src="https://kammegne2026.github.io/bricekammegne.github.io/assets/photo.jpg"
+           alt="Kammegne Tcheugam Brice"
+           onerror="this.parentElement.innerHTML='<div class=\'hero-photo-placeholder\'>B</div>'">
+    </div>
+
+    <div>
+      <div class="section-label">Research Interests</div>
+      <div class="interests-grid">
+        <span class="interest-pill">Numerical Tensor Methods</span>
+        <span class="interest-pill">Quantum Few-Body Systems</span>
+        <span class="interest-pill">Theoretical Chemistry</span>
+        <span class="interest-pill">Partial Differential Equations</span>
+        <span class="interest-pill">Functional Analysis</span>
+        <span class="interest-pill">Angular Momentum Theory</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">Education</div>
+      <div class="edu-list">
+        <div class="edu-item">
+          <span class="edu-icon">🎓</span>
+          <div class="edu-text">
+            <strong>PhD in Theoretical Chemistry</strong>
+            <span>University of Sussex · 2023–present</span>
+          </div>
+        </div>
+        <div class="edu-item">
+          <span class="edu-icon">🎓</span>
+          <div class="edu-text">
+            <strong>Master, Fundamental Sciences <em>(Distinction)</em></strong>
+            <span>AIMS Cameroon · 2021</span>
+          </div>
+        </div>
+        <div class="edu-item">
+          <span class="edu-icon">🎓</span>
+          <div class="edu-text">
+            <strong>Master 2, Applied Maths <em>(Highest Honours)</em></strong>
+            <span>ENS Maroua · 2020</span>
+          </div>
+        </div>
+        <div class="edu-item">
+          <span class="edu-icon">🎓</span>
+          <div class="edu-text">
+            <strong>BSc Maths &amp; Computer Science</strong>
+            <span>University of Maroua · 2018</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIOGRAPHY -->
+<section id="biography">
+  <div class="container">
+    <div class="section-label">Biography</div>
+    <div class="divider"></div>
+    <h2 class="section-title">About <em>me</em></h2>
+    <p class="section-intro">A researcher at the crossroads of mathematics, quantum physics, and computational science.</p>
+
+    <div class="bio-grid">
+      <div class="bio-text">
+        <p>Kammegne Tcheugam Brice is currently a PhD researcher in Theoretical Chemistry at the <strong>University of Sussex</strong>, supervised by <a href="mailto:h.cox@sussex.ac.uk">Prof. Hazel Cox</a>. His doctoral research, funded by an <strong>EPSRC studentship</strong>, focuses on the development of tensor-structured low-rank approximation methods for solving the Schrödinger equation for few-particle quantum systems with high numerical accuracy.</p>
+        <br>
+        <p>He holds a Master's degree (Distinction) from the <strong>African Institute for Mathematical Sciences (AIMS)</strong>, Cameroon, and a Master 2 in Applied Mathematics with Highest Honours from <strong>École Normale Supérieure de Maroua</strong>. His background spans pure mathematics, functional analysis, and computational quantum chemistry.</p>
+        <br>
+        <p>Brice has undertaken visiting research programmes at the <strong>University of Padova</strong> (Italy), the <strong>University of Dresden</strong> (Germany), and the <strong>National Yang Ming Chiao Tung University</strong> (Taiwan), and has presented his work at international conferences across Europe and North America.</p>
+      </div>
+
+      <div class="news-panel">
+        <h3>📰 Recent News</h3>
+        <div class="news-item">
+          <div class="news-date">2025.08</div>
+          Invited talk at University of Sussex Chemistry Summer Research — <em>Numerical Tensor Low-rank approximation for few-particle quantum systems.</em>
+        </div>
+        <div class="news-item">
+          <div class="news-date">2025.06–07</div>
+          Summer school at IMSI, Chicago — <em>Mathematical Introduction to High-Accuracy Electronic Structure Theory.</em>
+        </div>
+        <div class="news-item">
+          <div class="news-date">2025.02–04</div>
+          Visiting programme at National Yang Ming Chiao Tung University, Taiwan.
+        </div>
+        <div class="news-item">
+          <div class="news-date">2025</div>
+          Travel grant awarded by the <strong>Royal Society</strong>.
+        </div>
+        <div class="news-item">
+          <div class="news-date">2025</div>
+          New paper published in <strong>Mol. Phys.</strong> — <em>Ground and Excited S States...</em>
+        </div>
+        <div class="news-item">
+          <div class="news-date">2025</div>
+          New paper published in <strong>Phys. Rev. A</strong> 111, 022812.
+        </div>
+        <div class="news-item">
+          <div class="news-date">2024</div>
+          New paper published in <strong>Phys. Rev. A</strong> 109, 062812.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <div class="section-label">Peer-Reviewed</div>
+    <div class="divider"></div>
+    <h2 class="section-title">Publications</h2>
+    <p class="section-intro">Research contributions in computational quantum chemistry, mathematical physics, and epidemiological modelling.</p>
+
+    <div class="pub-list">
+
+      <div class="pub-card">
+        <div class="pub-year-col">
+          <div class="pub-year">2025</div>
+          <div class="pub-line"></div>
+        </div>
+        <div>
+          <div class="pub-journal">Molecular Physics</div>
+          <div class="pub-title">Ground and Excited S States of Three-body Systems using a Numerical Tensor Method</div>
+          <div class="pub-authors"><strong>K. T. Brice</strong>, F. Murdoch, M. Fitzgerald, H. Cox</div>
+          <div class="pub-ref">Mol. Phys., e2561867</div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-year-col">
+          <div class="pub-year">2025</div>
+          <div class="pub-line"></div>
+        </div>
+        <div>
+          <div class="pub-journal">Physical Review A</div>
+          <div class="pub-title">Numerical tensor method for atomic and exotic three-particle systems</div>
+          <div class="pub-authors"><strong>K. T. Brice</strong>, M. Melgaard, M. Pavlidou, H. Cox</div>
+          <div class="pub-ref">Phys. Rev. A 111, 022812</div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-year-col">
+          <div class="pub-year">2024</div>
+          <div class="pub-line"></div>
+        </div>
+        <div>
+          <div class="pub-journal">Physical Review A</div>
+          <div class="pub-title">Bound-state stability of Coulomb three-body systems using numerical tensor methods</div>
+          <div class="pub-authors"><strong>K. T. Brice</strong>, M. Melgaard, H. Cox</div>
+          <div class="pub-ref">Phys. Rev. A 109, 062812</div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-year-col">
+          <div class="pub-year">2023</div>
+          <div class="pub-line"></div>
+        </div>
+        <div>
+          <div class="pub-journal">Pathogens</div>
+          <div class="pub-title">Mathematical Modelling of the Spatial Distribution of a COVID-19 Outbreak with Vaccination Using Diffusion Equation</div>
+          <div class="pub-authors"><strong>K. T. Brice</strong>, K. Oshinubi, J. Demongeot</div>
+          <div class="pub-ref">Pathogens, 12(1), 88</div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-year-col">
+          <div class="pub-year">2022</div>
+          <div class="pub-line"></div>
+        </div>
+        <div>
+          <div class="pub-journal">Int. J. Biomath.</div>
+          <div class="pub-title">Analysis of an initial value problem for an extracellular and intracellular model of hepatitis C virus infection</div>
+          <div class="pub-authors">A. Nangue, A. Rendall, <strong>K. T. Brice</strong>, P. Simo</div>
+          <div class="pub-ref">Int. J. Biomath., 15(06), 2250041</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TALKS -->
+<section id="talks">
+  <div class="container">
+    <div class="section-label">Conferences & Visits</div>
+    <div class="divider"></div>
+    <h2 class="section-title">Selected <em>Talks</em></h2>
+    <p class="section-intro">International research presentations, summer schools, and visiting programmes.</p>
+
+    <table class="talks-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Location</th>
+          <th>Event</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="talk-date">2025.08</span></td>
+          <td>Brighton, UK</td>
+          <td>University of Sussex Chemistry Summer Research Talk</td>
+          <td><span class="talk-type type-invited">Invited Talk</span></td>
+        </tr>
+        <tr>
+          <td><span class="talk-date">2025.06–07</span></td>
+          <td>Chicago, USA</td>
+          <td>Mathematical Introduction to High-Accuracy Electronic Structure Theory (IMSI)</td>
+          <td><span class="talk-type type-school">Summer School</span></td>
+        </tr>
+        <tr>
+          <td><span class="talk-date">2025.02–04</span></td>
+          <td>Taiwan</td>
+          <td>National Yang Ming Chiao Tung University — Generalisation of Tensor Methods</td>
+          <td><span class="talk-type type-visitor">Visitor</span></td>
+        </tr>
+        <tr>
+          <td><span class="talk-date">2025.04</span></td>
+          <td>Brighton, UK</td>
+          <td>University of Sussex Chemistry PhD Symposium</td>
+          <td><span class="talk-type type-invited">Invited Talk</span></td>
+        </tr>
+        <tr>
+          <td><span class="talk-date">2024.09</span></td>
+          <td>Coventry, UK</td>
+          <td>Theoretical Chemistry Group's Graduate Student Meeting, University of Warwick</td>
+          <td><span class="talk-type type-selected">Selected Talk</span></td>
+        </tr>
+        <tr>
+          <td><span class="talk-date">2024.06</span></td>
+          <td>Dubrovnik, Croatia</td>
+          <td>MC2-35 Conference — Math/Chem/Comp</td>
+          <td><span class="talk-type type-poster">Poster</span></td>
+        </tr>
+        <tr>
+          <td><span class="talk-date">2024.05</span></td>
+          <td>Brighton, UK</td>
+          <td>University of Sussex Chemistry PhD Symposium</td>
+          <td><span class="talk-type type-invited">Invited Talk</span></td>
+        </tr>
+        <tr>
+          <td><span class="talk-date">2023.06</span></td>
+          <td>Tromsø, Norway</td>
+          <td>Numerical Methods in Quantum Chemistry Conference</td>
+          <td><span class="talk-type type-selected">Selected Talk</span></td>
+        </tr>
+        <tr>
+          <td><span class="talk-date">2022.04</span></td>
+          <td>Padova, Italy</td>
+          <td>University of Padova — Piecewise smooth approximations for balance laws</td>
+          <td><span class="talk-type type-visitor">Visitor</span></td>
+        </tr>
+        <tr>
+          <td><span class="talk-date">2021.03–05</span></td>
+          <td>Dresden, Germany</td>
+          <td>University of Dresden — DAAD Visiting Programme</td>
+          <td><span class="talk-type type-visitor">Visitor</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="container">
+    <div class="section-label">Funding & Honours</div>
+    <div class="divider"></div>
+    <h2 class="section-title">Scholarships <em>&amp; Awards</em></h2>
+    <p class="section-intro">Recognition from international research councils, universities, and scientific foundations.</p>
+
+    <div class="awards-grid">
+      <div class="award-card">
+        <div class="award-year">2025</div>
+        <div class="award-body">
+          <strong>Travel Grant</strong>
+          <span>Royal Society</span>
+        </div>
+      </div>
+      <div class="award-card">
+        <div class="award-year">2023</div>
+        <div class="award-body">
+          <strong>PhD Studentship (EPSRC)</strong>
+          <span>University of Sussex, UK</span>
+        </div>
+      </div>
+      <div class="award-card">
+        <div class="award-year">2022</div>
+        <div class="award-body">
+          <strong>Marco Garuti Programme</strong>
+          <span>University of Padova, Italy</span>
+        </div>
+      </div>
+      <div class="award-card">
+        <div class="award-year">2022</div>
+        <div class="award-body">
+          <strong>Master 2 Scholarship</strong>
+          <span>Sorbonne Université, France</span>
+        </div>
+      </div>
+      <div class="award-card">
+        <div class="award-year">2021</div>
+        <div class="award-body">
+          <strong>DAAD Visiting Programme</strong>
+          <span>University of Dresden, Germany</span>
+        </div>
+      </div>
+      <div class="award-card">
+        <div class="award-year">2020</div>
+        <div class="award-body">
+          <strong>AIMS Scholarship</strong>
+          <span>African Institute for Mathematical Sciences, Cameroon</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Get in touch</div>
+    <div class="divider" style="background: linear-gradient(to right, rgba(255,255,255,0.4), transparent);"></div>
+    <h2 class="section-title">Contact</h2>
+    <p class="section-intro" style="color: rgba(255,255,255,0.5);">Open to collaboration, scientific exchange, and enquiries.</p>
+
+    <div class="contact-grid">
+      <div class="contact-block">
+        <div class="contact-item">
+          <div class="contact-icon">✉</div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value"><a href="mailto:K.Brice@sussex.ac.uk">K.Brice@sussex.ac.uk</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Phone</div>
+            <div class="contact-value">(+44) 7985 181 031</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Address</div>
+            <div class="contact-value">38 Coombe Road, Brighton BN2 4EA, UK</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🎓</div>
+          <div>
+            <div class="contact-label">Institution</div>
+            <div class="contact-value"><a href="https://www.sussex.ac.uk" target="_blank">University of Sussex</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="references-block">
+        <h3>References</h3>
+        <div class="ref-item">
+          <div class="ref-name">Prof. Hazel Cox</div>
+          <div class="ref-affil">University of Sussex</div>
+          <div class="ref-email"><a href="mailto:h.cox@sussex.ac.uk" style="color: rgba(255,255,255,0.5); text-decoration: none;">h.cox@sussex.ac.uk</a></div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-name">Dr. John Turner</div>
+          <div class="ref-affil">University of Sussex</div>
+          <div class="ref-email"><a href="mailto:j.f.c.turner@sussex.ac.uk" style="color: rgba(255,255,255,0.5); text-decoration: none;">j.f.c.turner@sussex.ac.uk</a></div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-name">Prof. Henryk Witek</div>
+          <div class="ref-affil">National Chiao Tung University, Taiwan</div>
+          <div class="ref-email"><a href="mailto:hwitek@nycu.edu.tw" style="color: rgba(255,255,255,0.5); text-decoration: none;">hwitek@nycu.edu.tw</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Kammegne Tcheugam Brice &nbsp;·&nbsp; University of Sussex
+</footer>
+
+</body>
+</html>
